@@ -1,4 +1,4 @@
-from fastapi import FastAPI
+from fastapi import FastAPI, status
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.staticfiles import StaticFiles
 from app import database, models
@@ -15,6 +15,10 @@ app.add_middleware(CORSMiddleware,
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
+@app.get("/", status_code=status.HTTP_200_OK)
+def root():
+    return {"status": "ok"}
 
 app.include_router(event.router)
 app.include_router(user.router)
