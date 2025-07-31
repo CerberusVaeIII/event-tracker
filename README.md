@@ -16,17 +16,17 @@ Deployed and fully functional on Render.
  - Stack:
 
 Front end:
- - HTML
- - CSS
- - JavaScript (vanilla)
- - DOM manipulation and fetch requests
+  HTML
+  CSS
+  JavaScript (vanilla)
+  DOM manipulation and fetch requests
 
 Back end:
- - FastAPI (Python 3)
- - SQLite as easier to deploy alternative to PostgreSQL (via SQLAlchemy ORM)
- - Alembic (database versioning and migrations)
- - Jinja2 (templating, serving HTML pages)
- - CORS and OAuth2 token-based security
+  FastAPI (Python 3)
+  SQLite as easier to deploy alternative to PostgreSQL (via SQLAlchemy ORM)
+  Alembic (database versioning and migrations)
+  Jinja2 (templating, serving HTML pages)
+  CORS and OAuth2 token-based security
 
  - Installation: (Listed below are terminal commands)
 
