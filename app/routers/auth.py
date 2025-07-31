@@ -4,16 +4,17 @@ from sqlalchemy.orm import Session
 from app import database, models, schemas, utils, oauth2, config
 from fastapi.security.oauth2 import OAuth2PasswordRequestForm
 
+# Initialize router for login.
 router = APIRouter(
     prefix="/login",
     tags=["Authentication"]
 )
 
-@router.get("/", response_class=HTMLResponse, status_code=status.HTTP_200_OK) # Render the login page
+@router.get("/", response_class=HTMLResponse, status_code=status.HTTP_200_OK) # Render the login page.
 async def event_page(request: Request):
     return config.render_template(request, "login.html")
 
-@router.post("/", status_code=status.HTTP_200_OK, response_model=schemas.Token) # Handle user login and return access token
+@router.post("/", status_code=status.HTTP_200_OK, response_model=schemas.Token) # Handle user login and return access token.
 async def login(user_credentials: OAuth2PasswordRequestForm = Depends(), db: Session = Depends(database.get_db)):
     db_user = db.query(models.User).filter(models.User.email == user_credentials.username).first()
     if not db_user:

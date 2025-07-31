@@ -4,7 +4,7 @@ from sqlalchemy.sql.expression import text
 from sqlalchemy.orm import relationship
 from app.database import Base
 
-# Event object model. Has a foreign key for user ID.
+# Event object model. Has a foreign key for user ID. Due to SQLite database, has to be enabled in database.py
 class Event(Base):
     __tablename__ = "events"
 

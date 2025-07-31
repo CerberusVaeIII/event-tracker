@@ -4,10 +4,11 @@ function isTokenExpired(token) {
         const now = Math.floor(Date.now() / 1000);
         return payload.exp < now;
     } catch (e) {
-        return true; // if token is malformed, treat as expired
+        return true; // If token is malformed, treat it as if it's expired.
     }
 }
 
+// On each fetch, we will use this to validate that the current token is still valid, or even present.
 async function fetchWithAuth(url, options = {}) {
     const token = localStorage.getItem("token");
 

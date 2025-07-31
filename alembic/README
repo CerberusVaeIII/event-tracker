@@ -1,1 +1,5 @@
-Generic single-database configuration.
+Alembic manages different migrations of the SQLite database, keeping track of each version inside the ./versions folder. 
+
+Migrations can be run either as upgrade or downgrade in the command prompt within the project's folder by typing 'alembic upgrade/downgrade [migration_id]'. The migration ID is specified within each migration file.
+
+Migrations can also be executed by specifying how many versions you wish to move forwards/backwards (+1 one version forwards, -1 one version backwards etc.), or by simply specifying head to migrate to the newest version.

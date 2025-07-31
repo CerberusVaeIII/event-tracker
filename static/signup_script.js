@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded", () => { // Wait for the DOM to loa
             const now = Math.floor(Date.now() / 1000);
             return payload.exp < now;
         } catch (e) {
-            return true; // if token is malformed, treat as expired
+            return true; // If the token is malformed, treat it as if it's expired
         }
     }
 

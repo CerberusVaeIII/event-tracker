@@ -2,6 +2,8 @@ from pydantic import BaseModel, EmailStr
 from datetime import datetime
 from typing import Optional
 
+# Here are the schemas used throughout the app.
+
 class EventBase(BaseModel):
     name: str
     description: Optional[str]
