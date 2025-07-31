@@ -15,13 +15,15 @@ Deployed and fully functional on Render.
 
  - Stack:
 
-Front end:
+Front end:  
+  
   HTML  
   CSS  
   JavaScript (vanilla)  
   DOM manipulation and fetch requests  
 
-Back end:
+Back end:  
+  
   FastAPI (Python 3)  
   SQLite as easier to deploy alternative to PostgreSQL (via SQLAlchemy ORM)  
   Alembic (database versioning and migrations)  
