@@ -11,7 +11,7 @@ document.addEventListener("DOMContentLoaded", () => { // Wait for the DOM to loa
 
     const token = localStorage.getItem("token");
     if (token && !isTokenExpired(token)) {
-        window.location.href = "http://localhost:8000/events";
+        window.location.href = BASE_URL + "/events";
         return;
     } else {
         localStorage.removeItem("token"); // Remove expired/invalid token
@@ -25,7 +25,7 @@ document.addEventListener("DOMContentLoaded", () => { // Wait for the DOM to loa
         const password = document.querySelector("#password").value;
         
         // Send a POST request to the API signup endpoint
-        const res = await fetch("http://localhost:8000/signup", {
+        const res = await fetch(BASE_URL + "/signup", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({username, email, password}),
@@ -33,7 +33,7 @@ document.addEventListener("DOMContentLoaded", () => { // Wait for the DOM to loa
 
         // If the response is OK, redirect to login page;
         if(res.ok){
-            window.location.href = "http://localhost:8000/login";
+            window.location.href = BASE_URL + "/login";
         }
         
         // Otherwise, display an error message.

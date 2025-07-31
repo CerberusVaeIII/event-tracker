@@ -13,7 +13,7 @@ async function fetchWithAuth(url, options = {}) {
 
     if (!token || isTokenExpired(token)) {
         localStorage.removeItem("token");
-        window.location.href = "http://localhost:8000/login";
+        window.location.href = BASE_URL + "/login";
         return Promise.reject("Token expired or missing. Redirecting...");
     }
 
@@ -36,7 +36,7 @@ document.addEventListener("DOMContentLoaded", async () => { // Wait for the DOM 
     const token = localStorage.getItem("token");
     if (!token || isTokenExpired(token)) {
         localStorage.removeItem("token"); // Remove expired/invalid token
-        window.location.href = "http://localhost:8000/login";
+        window.location.href = BASE_URL + "/login";
         return;
     } 
 
@@ -53,7 +53,7 @@ document.addEventListener("DOMContentLoaded", async () => { // Wait for the DOM 
         const duration = document.querySelector("#duration").value;
 
         // Call API endpoint to create an event with the form data, demand token
-        const res = await fetchWithAuth("http://localhost:8000/events", {
+        const res = await fetchWithAuth(BASE_URL + "/events", {
             method: "POST",
             headers: { 
                 "Content-Type": "application/json"
@@ -75,7 +75,7 @@ document.addEventListener("DOMContentLoaded", async () => { // Wait for the DOM 
 async function loadUserEvents() { 
 
     // Call API endpoint to fetch the current user's events, user id extracted from token (see oauth2.py).
-    const res = await fetchWithAuth("http://localhost:8000/events/show", { 
+    const res = await fetchWithAuth(BASE_URL + "/events/show", { 
         method: "GET",
         headers: { 
             "Content-Type": "application/json"
@@ -112,7 +112,7 @@ async function loadUserEvents() {
                 
                 // Call the API endpoint if the data is introduced, updating this specific event.
                 if (newName && newDescription && newDate && newDuration) {
-                    const updateRes = await fetchWithAuth(`http://localhost:8000/events/${event.id}`, {
+                    const updateRes = await fetchWithAuth(BASE_URL + `/events/${event.id}`, {
                         method: "PUT",
                         headers: {
                             "Content-Type": "application/json"
@@ -140,7 +140,7 @@ async function loadUserEvents() {
             // Add a click event listener
             deleteBtn.addEventListener("click", async () => {
                 // Call the API endpoint to delete the specific event
-                const delRes = await fetchWithAuth(`http://localhost:8000/events/${event.id}`, {
+                const delRes = await fetchWithAuth(BASE_URL + `/events/${event.id}`, {
                     method: "DELETE",
                     headers: {
                         "Content-Type": "application/json"
@@ -174,7 +174,7 @@ async function loadCurrentUser() {
     }
 
     // Get the current user's username through an API route, extracting it from the token.
-    const res = await fetchWithAuth("http://localhost:8000/users/current", { 
+    const res = await fetchWithAuth(BASE_URL + "/users/current", { 
         method: "GET",
         headers: { 
             "Content-Type": "application/json"
@@ -192,7 +192,7 @@ async function loadCurrentUser() {
             const confirmDelete = confirm("Are you sure you want to delete your account?");
             if (confirmDelete) {
                 // If confirmed, call API endpoint to delete the user. It will extract the user from the token in the backend.
-                const delRes = await fetchWithAuth(`http://localhost:8000/users/delete`, {
+                const delRes = await fetchWithAuth(BASE_URL + `/users/delete`, {
                     method: "DELETE",
                     headers: {
                         "Content-Type": "application/json"
@@ -203,7 +203,7 @@ async function loadCurrentUser() {
                 if (delRes.ok) {
                     alert("Account deleted successfully.");
                     localStorage.removeItem("token");
-                    window.location.href = "http://localhost:8000/login"; // Redirect to login page
+                    window.location.href = BASE_URL + "/login"; // Redirect to login page
                 } else {
                     console.error("Account deletion failed.");
                 }
@@ -218,7 +218,7 @@ async function loadCurrentUser() {
     logoutBtn.addEventListener("click", () => {
         // On log out, since all operations use the token for authentication, just remove the token and redirect.
         localStorage.removeItem("token");
-        window.location.href = "http://localhost:8000/login"; // Redirect to login page
+        window.location.href = BASE_URL + "/login"; // Redirect to login page
     });
 
     // Finally, use the username returned by the first endpoint call within this function.

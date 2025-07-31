@@ -11,7 +11,7 @@ router = APIRouter(
 
 @router.get("/", response_class=HTMLResponse, status_code=status.HTTP_200_OK) # Render the login page
 async def event_page(request: Request):
-    return config.templates.TemplateResponse("login.html", {"request": request})
+    return config.render_template(request, "login.html")
 
 @router.post("/", status_code=status.HTTP_200_OK, response_model=schemas.Token) # Handle user login and return access token
 async def login(user_credentials: OAuth2PasswordRequestForm = Depends(), db: Session = Depends(database.get_db)):

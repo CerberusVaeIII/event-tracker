@@ -11,7 +11,7 @@ router = APIRouter(
 @router.get("/signup", response_class=HTMLResponse, status_code=status.HTTP_200_OK)
 # Render the signup page
 async def signup_page(request: Request):
-    return config.templates.TemplateResponse("signup.html", {"request": request})
+    return config.render_template(request, "signup.html")
 
 @router.post("/signup", status_code = status.HTTP_201_CREATED)
 # Handle user signup and create a new user

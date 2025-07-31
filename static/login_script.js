@@ -11,7 +11,7 @@ document.addEventListener("DOMContentLoaded", () => { // Wait for the DOM to loa
 
     const token = localStorage.getItem("token");
     if (token && !isTokenExpired(token)) {
-        window.location.href = "http://localhost:8000/events";
+        window.location.href = BASE_URL + "/events";
         return;
     } else {
         localStorage.removeItem("token"); // Remove expired/invalid token
@@ -25,7 +25,7 @@ document.addEventListener("DOMContentLoaded", () => { // Wait for the DOM to loa
         const password = document.querySelector("#password").value;
 
         // Send a POST request to the API login endpoint
-        const res = await fetch("http://localhost:8000/login", {
+        const res = await fetch(BASE_URL + "/login", {
             method: "POST",
             headers: { "Content-Type": "application/x-www-form-urlencoded" },
             body: new URLSearchParams({
@@ -39,7 +39,7 @@ document.addEventListener("DOMContentLoaded", () => { // Wait for the DOM to loa
         if (res.ok) {
             const data = await res.json();
             localStorage.setItem("token", data.access_token); // Save token
-            window.location.href = "http://localhost:8000/events"; 
+            window.location.href = BASE_URL + "/events"; 
         } else { // Otherwise, display an error message.
             document.getElementById("response").innerText = "Login failed.";
         }

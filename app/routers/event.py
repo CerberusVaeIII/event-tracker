@@ -13,7 +13,7 @@ router = APIRouter(
 @router.get("/", response_class=HTMLResponse, status_code=status.HTTP_200_OK) 
 # Render the events page for the current user
 async def event_page(request: Request):
-    return config.templates.TemplateResponse("events.html", {"request": request})
+    return config.render_template(request, "events.html")
 
 @router.post("/", status_code=status.HTTP_201_CREATED) 
 # Creates a new event for the current user, called from events_script.js
