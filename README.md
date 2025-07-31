@@ -4,29 +4,29 @@ Welcome to my Event Manager App, a full-stack web app designed for event managem
 
  - Below are some of its features:
 
-JWT token based authentication;
-Create, Read, Update, Delete events once logged in, with minor validation;
-Password hashing within the database;
-Active redirects based on login status, presence and validity of token;
-Token expiration handling;
-Alembic database migrations;
-Intuitive UI through JavaScript, HTML and CSS;
-Deployed and fully functional on Render.
+JWT token based authentication;  
+Create, Read, Update, Delete events once logged in, with minor validation;   
+Password hashing within the database;  
+Active redirects based on login status, presence and validity of token;  
+Token expiration handling;  
+Alembic database migrations;  
+Intuitive UI through JavaScript, HTML and CSS;  
+Deployed and fully functional on Render.  
 
  - Stack:
 
 Front end:
-  HTML
-  CSS
-  JavaScript (vanilla)
-  DOM manipulation and fetch requests
+  HTML  
+  CSS  
+  JavaScript (vanilla)  
+  DOM manipulation and fetch requests  
 
 Back end:
-  FastAPI (Python 3)
-  SQLite as easier to deploy alternative to PostgreSQL (via SQLAlchemy ORM)
-  Alembic (database versioning and migrations)
-  Jinja2 (templating, serving HTML pages)
-  CORS and OAuth2 token-based security
+  FastAPI (Python 3)  
+  SQLite as easier to deploy alternative to PostgreSQL (via SQLAlchemy ORM)  
+  Alembic (database versioning and migrations)  
+  Jinja2 (templating, serving HTML pages)  
+  CORS and OAuth2 token-based security  
 
  - Installation: (Listed below are terminal commands)
 
