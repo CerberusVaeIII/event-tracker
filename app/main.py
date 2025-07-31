@@ -4,6 +4,8 @@ from fastapi.staticfiles import StaticFiles
 from app import database, models
 from app.routers import event, user, auth
 
+print("Starting app...")
+
 app = FastAPI()
 
 #models.Base.metadata.create_all(bind=database.engine)
