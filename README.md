@@ -43,7 +43,7 @@ Back end:
     pip install -r requirements.txt
  4. Set environment variables
     Create a .env file in the root folder:
-    SECRET_KEY=secret_key (You can manually enter this too as any string, or generate one online or through an LLM)
+    SECRET_KEY=secret_key (You can manually enter this too as any string, or generate one online)
     ALGORITHM=HS256
     ACCESS_TOKEN_EXPIRE_MINUTES=60
  5. Run alembic migrations
