@@ -32,23 +32,23 @@ Back end:
 
  - Installation: (Listed below are terminal commands)
 
- 1. Clone the repo. 
+ 1. Clone the repo.   
     git clone https://github.com/CerberusVaeIII/event-manager.git
     cd event-manager
- 2. Create a virtual environment
+ 2. Create a virtual environment   
     python -m venv venv
     source venv/bin/activate  (for Mac, Linux)
     venv\Scripts\activate     (for Windows)
- 3. Install dependencies with pip
+ 3. Install dependencies with pip   
     pip install -r requirements.txt
- 4. Set environment variables
+ 4. Set environment variables   
     Create a .env file in the root folder:
     SECRET_KEY=secret_key (You can manually enter this too as any string, or generate one online)
     ALGORITHM=HS256
     ACCESS_TOKEN_EXPIRE_MINUTES=60
- 5. Run alembic migrations
+ 5. Run alembic migrations   
     alembic upgrade head
- 6. Start the app
+ 6. Start the app   
     uvicorn app.main:app --reload
 
  - Usage: 
