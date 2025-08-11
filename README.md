@@ -5,12 +5,12 @@ Welcome to my Event Manager App, a full-stack web app designed for event managem
  - Below are some of its features:
 
 JWT token based authentication;  
-Create, Read, Update, Delete events once logged in, with minor validation;   
+Create, Read, Update, Delete events once logged in, with essential validation;   
 Password hashing within the database;  
 Active redirects based on login status, presence and validity of token;  
 Token expiration handling;  
 Alembic database migrations;  
-Intuitive UI through JavaScript, HTML and CSS;  
+UI and logical UX through JavaScript, HTML and CSS;  
 Deployed and fully functional on Render.  
 
  - Stack:
